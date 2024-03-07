@@ -1,5 +1,7 @@
 def caesar(offset, input_str):
-    return ''
+    huruf = {chr(i + ord('a')): chr((i + offset) % 26 + ord('a')) for i in range(26)}
+    huruf.update({chr(i + ord('A')): chr((i + offset) % 26 + ord('A')) for i in range(26)})
+    return "".join(huruf.get(c, c) for c in input_str)
 
 if __name__ == '__main__':
     print(caesar(3, "abc")) # def
